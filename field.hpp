@@ -104,13 +104,13 @@ int Field::mooreNeighbourhood(std::pair<int, int> position, const sf::Color &key
 
     for(int u = -1; u < 2; ++u) {
         for(int k = -1; k < 2; ++k) {
-            if(position.first + u > squares.size() - 1 or position.first + u < 0) {
+            if(position.first + u > static_cast<int>(squares.size()) - 1 or position.first + u < 0) {
                 overflowX = true;
-                position.first = (position.first + u > squares.size() - 1) ? -1 : squares.size();
+                position.first = (position.first + u > static_cast<int>(squares.size()) - 1) ? -1 : squares.size();
             }
-            if(position.second + k > squares.begin()->size() - 1 or position.second + k < 0) {
+            if(position.second + k > static_cast<int>(squares.begin()->size()) - 1 or position.second + k < 0) {
                 overflowY = true;
-                position.second = (position.second + k > squares.begin()->size() - 1) ? -1 : squares.begin()->size();
+                position.second = (position.second + k > static_cast<int>(squares.begin()->size()) - 1) ? -1 : squares.begin()->size();
             }
             if(squares.at(position.first + u).at(position.second + k).getFillColor() == keyColor) {
                 counter++;
